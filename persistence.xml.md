@@ -1,6 +1,6 @@
 # `persistence.xml` Configuration Guide
 
-The `persistence.xml` file is a crucial configuration file for Java Persistence API (JPA) applications. It defines how the application connects to the database and manages persistence contexts. Below is an explanation of its components and their importance in the JPA-Hibernate context.
+The `persistence.xml` file is a crucial configuration file for Java Persistence API (JPA) applications. It defines how the application connects to the database and manages persistence contexts. It has metadata about the connection and behaviour.
 
 ---
 
@@ -10,6 +10,8 @@ The `persistence.xml` file provides metadata for:
 - Database connection settings.
 - JPA provider configuration.
 - Schema generation and SQL formatting.
+  
+![image](https://github.com/user-attachments/assets/38f795ab-375b-4424-82a8-480fa12878c6)
 
 ---
 
