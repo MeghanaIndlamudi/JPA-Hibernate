@@ -6,6 +6,7 @@ import java.util.Date;
 @Table(name = "EMPLOYEE_DATA")
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)//by default it is auto
     private int id;
     @Column(
             name = "employee_name",
@@ -16,19 +17,16 @@ public class Employee {
     private int age;
 
 //    @Temporal(TemporalType.TIME)
-@Temporal(TemporalType.DATE)//to customize date
+    @Temporal(TemporalType.DATE)//to customize date
     private Date dob;
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
 
     @Column(unique = true,nullable = false,length = 10,updatable = false)
     private String ssn;
+    @Enumerated(EnumType.STRING)
+    private EmployeeType type;
+
+    @Transient
+    private String debugString; // This field will not be persisted in the database
 
     public int getAge() {
         return age;
@@ -60,5 +58,20 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public EmployeeType getType() {
+        return type;
+    }
+
+    public void setType(EmployeeType type) {
+        this.type = type;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 }

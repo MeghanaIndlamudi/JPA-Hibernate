@@ -15,18 +15,20 @@ public class JPAStarterMain
     public static void main( String[] args )
     {
         Employee employee = new Employee();
-        employee.setId(1);
+//        employee.setId(1);
         employee.setName("Meghana");
         employee.setSsn("123");
         employee.setDob(new Date());
+        employee.setType(EmployeeType.CONTRACTOR);
 
         Employee employee1 = new Employee();
-        employee1.setId(2);
+//        employee1.setId(2);
         employee1.setName("Sai");
         employee1.setSsn("1234");
+        employee1.setType(EmployeeType.CONTRACTOR);
 
         Employee employee2 = new Employee();
-        employee2.setId(3);
+//        employee2.setId(3);
         employee2.setName("Dharani");
         employee2.setSsn("12345");
 

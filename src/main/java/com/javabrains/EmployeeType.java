@@ -1,0 +1,8 @@
+package com.javabrains;
+
+public enum EmployeeType {
+    PAYROLL_EXEMPT,
+    FULL_TIME,
+    CONTRACTOR,
+
+}
