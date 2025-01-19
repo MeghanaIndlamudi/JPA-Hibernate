@@ -25,9 +25,11 @@ public class JPAStarterMain
         System.out.println(employee);
         System.out.println(employee1);
         System.out.println(employee2);
+        /*
         //update
         employee1.setAge(30);
         employee1.setType(EmployeeType.FULL_TIME);
+        // doing the above 2 lines doesn;t help we need to tell persist or JPA that we need to update
 
         EntityTransaction transaction=entityManager.getTransaction();
         transaction.begin();
@@ -37,13 +39,20 @@ public class JPAStarterMain
         transaction.commit();
         entityManager.close();
         entityManagerFactory.close();
-        // doing the above 2 lines doesn;t help we need to tell persist or JPA that we need to update
+         */
         /*
         // If data doesn't exists in java it returns a null in sql it is empty
         Employee employee4=entityManager.find(Employee.class, 4);
         System.out.println(employee4);
         */
+        //delete
+        EntityTransaction transaction=entityManager.getTransaction();
+        transaction.begin();
+        entityManager.remove(employee2);// find employee instance and pass it to remove
 
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
 /*
         Employee employee = new Employee();
 //        employee.setId(1);
