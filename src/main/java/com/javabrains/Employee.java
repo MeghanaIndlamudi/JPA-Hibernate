@@ -1,4 +1,5 @@
 package com.javabrains;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,7 +9,32 @@ import javax.persistence.Table;
 public class Employee {
     @Id
     private int id;
+    @Column(
+            name = "employee_name",
+            length = 100
+    )
     private String name;
+
+    private int age;
+
+    @Column(unique = true,nullable = false,length = 10)
+    private String ssn;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
 
     public int getId() {
         return id;

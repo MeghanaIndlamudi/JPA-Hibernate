@@ -10,24 +10,25 @@ import javax.persistence.Persistence;
  *
  */
 public class JPAStarterMain
-
 {
     public static void main( String[] args )
     {
         Employee employee = new Employee();
         employee.setId(1);
         employee.setName("Meghana");
+        employee.setSsn("123");
 
         Employee employee1 = new Employee();
         employee1.setId(2);
         employee1.setName("Sai");
+        employee.setSsn("123");
 
         Employee employee2 = new Employee();
         employee2.setId(3);
         employee2.setName("Dharani");
 
         // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
-        //name is in the persistnece.xml which can be changed to anything adding it as a local variable
+        //name is in the persistence.xml which can be changed to anything adding it as a local variable
         EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager=entityManagerFactory.createEntityManager();
         EntityTransaction transaction=entityManager.getTransaction();
