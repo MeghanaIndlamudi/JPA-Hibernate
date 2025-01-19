@@ -4,7 +4,8 @@ package com.javabrains;
  * Hello world!
  *
  */
-public class App 
+public class JPAStarterMain
+
 {
     public static void main( String[] args )
     {
