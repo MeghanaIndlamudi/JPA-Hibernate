@@ -20,7 +20,14 @@ public class JPAStarterMain
         // just like table name in JPA we give entity class name
         //this is equal to select * from employee_daa where id=1;
         Employee employee=entityManager.find(Employee.class, 1);
+        Employee employee1=entityManager.find(Employee.class, 2);
+        Employee employee2=entityManager.find(Employee.class, 3);
         System.out.println(employee);
+        System.out.println(employee1);
+        System.out.println(employee2);
+        // If data doesn't exists in java it returns a null in sql it is empty
+        Employee employee4=entityManager.find(Employee.class, 4);
+        System.out.println(employee4);
 
 //        Employee employee = new Employee();
 ////        employee.setId(1);
