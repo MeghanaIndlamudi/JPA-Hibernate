@@ -1,8 +1,6 @@
 package com.javabrains;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "EMPLOYEE_DATA")
@@ -16,6 +14,18 @@ public class Employee {
     private String name;
 
     private int age;
+
+//    @Temporal(TemporalType.TIME)
+@Temporal(TemporalType.DATE)//to customize date
+    private Date dob;
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 
     @Column(unique = true,nullable = false,length = 10,updatable = false)
     private String ssn;
