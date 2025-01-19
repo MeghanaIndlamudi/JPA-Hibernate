@@ -29,6 +29,18 @@ public class Employee {
     @Transient
     private String debugString; // This field will not be persisted in the database
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", dob=" + dob +
+                ", ssn='" + ssn + '\'' +
+                ", type=" + type +
+                '}';
+    }
+
     public int getAge() {
         return age;
     }
