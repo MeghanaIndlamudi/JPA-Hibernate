@@ -25,43 +25,59 @@ public class JPAStarterMain
         System.out.println(employee);
         System.out.println(employee1);
         System.out.println(employee2);
+        //update
+        employee1.setAge(30);
+        employee1.setType(EmployeeType.FULL_TIME);
+
+        EntityTransaction transaction=entityManager.getTransaction();
+        transaction.begin();
+        // In the below line if employee already exist it recognizes as update else it will insert. This will be identified using primary key
+        entityManager.persist(employee1);
+
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
+        // doing the above 2 lines doesn;t help we need to tell persist or JPA that we need to update
+        /*
         // If data doesn't exists in java it returns a null in sql it is empty
         Employee employee4=entityManager.find(Employee.class, 4);
         System.out.println(employee4);
+        */
 
-//        Employee employee = new Employee();
-////        employee.setId(1);
-//        employee.setName("Meghana");
-//        employee.setSsn("123");
-//        employee.setAge(24);
-//        employee.setDob(new Date());
-//        employee.setType(EmployeeType.CONTRACTOR);
-//
-//        Employee employee1 = new Employee();
-////        employee1.setId(2);
-//        employee1.setName("Sai");
-//        employee1.setAge(26);
-//        employee1.setSsn("1234");
-//        employee1.setType(EmployeeType.CONTRACTOR);
-//
-//        Employee employee2 = new Employee();
-////        employee2.setId(3);
-//        employee2.setName("Dharani");
-//        employee2.setAge(27);
-//        employee2.setSsn("12345");
-//        employee2.setType(EmployeeType.CONTRACTOR);
-//
-//        // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
-//        //name is in the persistence.xml which can be changed to anything adding it as a local variable
-//        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("myApp");
-//        EntityManager entityManager=entityManagerFactory.createEntityManager();
-//        EntityTransaction transaction=entityManager.getTransaction();
-//        transaction.begin();
-//        entityManager.persist(employee);
-//        entityManager.persist(employee1);
-//        entityManager.persist(employee2);
-//        transaction.commit();
-//        entityManager.close();
-//        entityManagerFactory.close();
+/*
+        Employee employee = new Employee();
+//        employee.setId(1);
+        employee.setName("Meghana");
+        employee.setSsn("123");
+        employee.setAge(24);
+        employee.setDob(new Date());
+        employee.setType(EmployeeType.CONTRACTOR);
+
+        Employee employee1 = new Employee();
+//        employee1.setId(2);
+        employee1.setName("Sai");
+        employee1.setAge(26);
+        employee1.setSsn("1234");
+        employee1.setType(EmployeeType.CONTRACTOR);
+
+        Employee employee2 = new Employee();
+//        employee2.setId(3);
+        employee2.setName("Dharani");
+        employee2.setAge(27);
+        employee2.setSsn("12345");
+        employee2.setType(EmployeeType.CONTRACTOR);
+
+        // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
+        //name is in the persistence.xml which can be changed to anything adding it as a local variable
+        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("myApp");
+        EntityManager entityManager=entityManagerFactory.createEntityManager();
+        EntityTransaction transaction=entityManager.getTransaction();
+        transaction.begin();
+        entityManager.persist(employee);
+        entityManager.persist(employee1);
+        entityManager.persist(employee2);
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();*/
     }
 }
