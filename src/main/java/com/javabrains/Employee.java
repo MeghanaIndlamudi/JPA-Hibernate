@@ -17,7 +17,7 @@ public class Employee {
 
     private int age;
 
-    @Column(unique = true,nullable = false,length = 10)
+    @Column(unique = true,nullable = false,length = 10,updatable = false)
     private String ssn;
 
     public int getAge() {
