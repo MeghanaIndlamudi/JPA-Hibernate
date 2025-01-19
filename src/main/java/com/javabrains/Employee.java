@@ -6,7 +6,8 @@ import java.util.Date;
 @Table(name = "EMPLOYEE_DATA")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)//by default it is auto
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)//by default it is auto
+    @GeneratedValue
     private int id;
     @Column(
             name = "employee_name",
