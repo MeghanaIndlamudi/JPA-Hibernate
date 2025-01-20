@@ -1,6 +1,7 @@
 package com.javabrains;
 import javax.persistence.*;
 import java.util.Date;
+import com.javabrains.AccessCard;
 
 @Entity
 @Table(name = "EMPLOYEE_DATA")
@@ -23,11 +24,23 @@ public class Employee {
 
     @Column(unique = true,nullable = false,length = 10,updatable = false)
     private String ssn;
+
     @Enumerated(EnumType.STRING)
     private EmployeeType type;
 
     @Transient
     private String debugString; // This field will not be persisted in the database
+
+    @OneToOne
+    private AccessCard card;
+
+    public AccessCard getCard() {
+        return card;
+    }
+
+    public void setCard(AccessCard card) {
+        this.card = card;
+    }
 
     @Override
     public String toString() {
@@ -87,4 +100,5 @@ public class Employee {
     public void setDob(Date dob) {
         this.dob = dob;
     }
+
 }
