@@ -1,6 +1,8 @@
 package com.javabrains;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 import com.javabrains.AccessCard;
 import org.hibernate.annotations.Fetch;
 
@@ -34,6 +36,9 @@ public class Employee {
 
     @OneToOne//(fetch = FetchType.LAZY)
     private AccessCard card;
+
+    @OneToMany(mappedBy="employee", fetch=FetchType.EAGER)
+    private List<PayStub> payStubList;
 
     @Override
     public String toString() {
@@ -103,4 +108,11 @@ public class Employee {
         this.dob = dob;
     }
 
+    public List<PayStub> getPayStubList() {
+        return payStubList;
+    }
+
+    public void setPayStubList(List<PayStub> payStubList) {
+        this.payStubList = payStubList;
+    }
 }

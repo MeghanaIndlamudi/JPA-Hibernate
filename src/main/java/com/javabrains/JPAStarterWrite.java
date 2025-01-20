@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Date;
+import java.util.List;
 
 public class JPAStarterWrite
 {
@@ -85,6 +86,7 @@ public class JPAStarterWrite
         accessCard1.setOwner(employee);
         employee.setCard(accessCard1);
 
+
         AccessCard accessCard2=new AccessCard();
         accessCard2.setIssuesDate(new Date());
         accessCard2.setiActive(false);
@@ -92,7 +94,20 @@ public class JPAStarterWrite
         accessCard2.setOwner(employee1);
         employee1.setCard(accessCard2);
 
+        PayStub payStub=new PayStub();
+        payStub.setPayPeriodStart(new Date());
+        payStub.setGetPayPeriodEnd(new Date());
+        payStub.setEmployee(employee);
+        payStub.setSalary(1000);
 
+
+        PayStub payStub1=new PayStub();
+        payStub1.setPayPeriodStart(new Date());
+        payStub1.setGetPayPeriodEnd(new Date());
+        payStub1.setEmployee(employee);
+        payStub1.setSalary(2000);
+
+        employee.setPayStubList(List.of(payStub,payStub1));
 
         // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
         //name is in the persistence.xml which can be changed to anything adding it as a local variable
@@ -100,12 +115,17 @@ public class JPAStarterWrite
         EntityManager entityManager=entityManagerFactory.createEntityManager();
         EntityTransaction transaction=entityManager.getTransaction();
         transaction.begin();
+
         entityManager.persist(employee);
         entityManager.persist(employee1);
 //        entityManager.persist(employee2);
 
         entityManager.persist(accessCard1);
         entityManager.persist(accessCard2);
+
+        entityManager.persist(payStub);
+        entityManager.persist(payStub1);
+
         transaction.commit();
         entityManager.close();
         entityManagerFactory.close();
