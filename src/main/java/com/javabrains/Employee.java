@@ -32,7 +32,7 @@ public class Employee {
     @Transient
     private String debugString; // This field will not be persisted in the database
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne//(fetch = FetchType.LAZY)
     private AccessCard card;
 
     @Override

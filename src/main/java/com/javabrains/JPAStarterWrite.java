@@ -82,12 +82,14 @@ public class JPAStarterWrite
         accessCard1.setIssuesDate(new Date());
         accessCard1.setiActive(true);
         accessCard1.setFirmwareVersion("1.0.0");
+        accessCard1.setOwner(employee);
         employee.setCard(accessCard1);
 
         AccessCard accessCard2=new AccessCard();
         accessCard2.setIssuesDate(new Date());
         accessCard2.setiActive(false);
         accessCard2.setFirmwareVersion("1.2.0");
+        accessCard2.setOwner(employee1);
         employee1.setCard(accessCard2);
 
 

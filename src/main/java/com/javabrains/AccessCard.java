@@ -14,6 +14,9 @@ public class AccessCard {
     private boolean iActive;
     private String firmwareVersion;
 
+    @OneToOne(mappedBy = "card")
+    private Employee owner;
+
     @Override
     public String toString() {
         return "AccessCard{" +
@@ -54,5 +57,13 @@ public class AccessCard {
 
     public void setFirmwareVersion(String firmwareVersion) {
         this.firmwareVersion = firmwareVersion;
+    }
+
+    public Employee getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Employee owner) {
+        this.owner = owner;
     }
 }
