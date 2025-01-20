@@ -14,6 +14,16 @@ public class AccessCard {
     private boolean iActive;
     private String firmwareVersion;
 
+    @Override
+    public String toString() {
+        return "AccessCard{" +
+                "id=" + id +
+                ", issuesDate=" + issuesDate +
+                ", iActive=" + iActive +
+                ", firmwareVersion='" + firmwareVersion + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

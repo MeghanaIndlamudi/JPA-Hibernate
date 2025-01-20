@@ -2,6 +2,7 @@ package com.javabrains;
 import javax.persistence.*;
 import java.util.Date;
 import com.javabrains.AccessCard;
+import org.hibernate.annotations.Fetch;
 
 @Entity
 @Table(name = "EMPLOYEE_DATA")
@@ -31,16 +32,8 @@ public class Employee {
     @Transient
     private String debugString; // This field will not be persisted in the database
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private AccessCard card;
-
-    public AccessCard getCard() {
-        return card;
-    }
-
-    public void setCard(AccessCard card) {
-        this.card = card;
-    }
 
     @Override
     public String toString() {
@@ -51,7 +44,16 @@ public class Employee {
                 ", dob=" + dob +
                 ", ssn='" + ssn + '\'' +
                 ", type=" + type +
+                ", card=" + card +
                 '}';
+    }
+
+    public AccessCard getCard() {
+        return card;
+    }
+
+    public void setCard(AccessCard card) {
+        this.card = card;
     }
 
     public int getAge() {

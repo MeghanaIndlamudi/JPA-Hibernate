@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Date;
 
-public class JPAStarterMain
+public class JPAStarterWrite
 {
     public static void main( String[] args )
     {
@@ -82,13 +82,13 @@ public class JPAStarterMain
         accessCard1.setIssuesDate(new Date());
         accessCard1.setiActive(true);
         accessCard1.setFirmwareVersion("1.0.0");
-        employee1.setCard(accessCard1);
+        employee.setCard(accessCard1);
 
         AccessCard accessCard2=new AccessCard();
         accessCard2.setIssuesDate(new Date());
         accessCard2.setiActive(false);
         accessCard2.setFirmwareVersion("1.2.0");
-        employee1.setCard(accessCard1);
+        employee1.setCard(accessCard2);
 
 
 
