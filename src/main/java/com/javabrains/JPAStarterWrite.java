@@ -105,7 +105,7 @@ public class JPAStarterWrite
         PayStub payStub1=new PayStub();
         payStub1.setPayPeriodStart(new Date());
         payStub1.setGetPayPeriodEnd(new Date());
-        payStub1.setEmployee(employee);
+        payStub1.setEmployee(employee1);
         employee1.addPayStub(payStub1);
         payStub1.setSalary(2000);
 

@@ -38,8 +38,8 @@ public class Employee {
     @OneToOne//(fetch = FetchType.LAZY)
     private AccessCard card;
 
-    @OneToMany(mappedBy="employee", fetch=FetchType.EAGER)
-    private List<PayStub> payStubList = new ArrayList<>();
+    @OneToMany(mappedBy="employee")//, fetch=FetchType.EAGER)
+    private List<PayStub> payStubList= new ArrayList<>();
 
     @Override
     public String toString() {
@@ -117,7 +117,7 @@ public class Employee {
         this.payStubList = payStubList;
     }
 
-    public void addPayStub(PayStub payStub){
-        this.addPayStub(payStub);
+    public void addPayStub(PayStub payStubList){
+        this.payStubList.add(payStubList);
     }
 }
