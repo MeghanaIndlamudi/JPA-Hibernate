@@ -98,6 +98,7 @@ public class JPAStarterWrite
         payStub.setPayPeriodStart(new Date());
         payStub.setGetPayPeriodEnd(new Date());
         payStub.setEmployee(employee);
+        employee.addPayStub(payStub);
         payStub.setSalary(1000);
 
 
@@ -105,9 +106,10 @@ public class JPAStarterWrite
         payStub1.setPayPeriodStart(new Date());
         payStub1.setGetPayPeriodEnd(new Date());
         payStub1.setEmployee(employee);
+        employee1.addPayStub(payStub1);
         payStub1.setSalary(2000);
 
-        employee.setPayStubList(List.of(payStub,payStub1));
+//        employee.setPayStubList(List.of(payStub,payStub1));
 
         // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
         //name is in the persistence.xml which can be changed to anything adding it as a local variable

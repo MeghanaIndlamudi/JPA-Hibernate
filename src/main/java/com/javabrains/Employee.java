@@ -1,5 +1,6 @@
 package com.javabrains;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class Employee {
     private AccessCard card;
 
     @OneToMany(mappedBy="employee", fetch=FetchType.EAGER)
-    private List<PayStub> payStubList;
+    private List<PayStub> payStubList = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -114,5 +115,9 @@ public class Employee {
 
     public void setPayStubList(List<PayStub> payStubList) {
         this.payStubList = payStubList;
+    }
+
+    public void addPayStub(PayStub payStub){
+        this.addPayStub(payStub);
     }
 }
