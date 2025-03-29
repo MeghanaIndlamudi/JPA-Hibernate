@@ -41,6 +41,9 @@ public class Employee {
     @OneToMany(mappedBy="employee")//, fetch=FetchType.EAGER)
     private List<PayStub> payStubList= new ArrayList<>();
 
+    @ManyToMany
+    private List<EmailGroup> emailGroups=new ArrayList<>();
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -119,5 +122,18 @@ public class Employee {
 
     public void addPayStub(PayStub payStubList){
         this.payStubList.add(payStubList);
+    }
+
+    public List<EmailGroup> getEmailGroups() {
+        return emailGroups;
+    }
+
+    public void setEmailGroups(List<EmailGroup> emailGroups) {
+        this.emailGroups = emailGroups;
+    }
+
+    public void addEmailSubscription(EmailGroup group)
+    {
+        this.emailGroups.add(group);
     }
 }

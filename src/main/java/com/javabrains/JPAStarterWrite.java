@@ -109,6 +109,18 @@ public class JPAStarterWrite
         employee1.addPayStub(payStub1);
         payStub1.setSalary(2000);
 
+        EmailGroup group=new EmailGroup();
+        group.setName("Company Watercooler Discussions");
+        group.addMember(employee);
+        group.addMember(employee1);
+        employee.addEmailSubscription(group);
+        employee1.addEmailSubscription(group);
+
+        EmailGroup group1=new EmailGroup();
+        group1.setName("Company Project Discussions");
+        group1.addMember(employee);
+        employee.addEmailSubscription(group1);
+
 //        employee.setPayStubList(List.of(payStub,payStub1));
 
         // syntax to Get an Entity manager to manage data holder which is an entity. get it and tell it save this entry
@@ -127,6 +139,9 @@ public class JPAStarterWrite
 
         entityManager.persist(payStub);
         entityManager.persist(payStub1);
+
+        entityManager.persist(group);
+        entityManager.persist(group1);
 
         transaction.commit();
         entityManager.close();
