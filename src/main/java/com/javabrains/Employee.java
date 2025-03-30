@@ -42,6 +42,10 @@ public class Employee {
     private List<PayStub> payStubList= new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "EMAIL_GROUP_SUBSCRIPTIONS",
+            joinColumns=@JoinColumn(name = "EMPLOYEE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "SUBSCRIPTION_EMIAL_ID")
+    )
     private List<EmailGroup> emailGroups=new ArrayList<>();
 
     @Override
