@@ -41,7 +41,7 @@ public class Employee {
     @OneToMany(mappedBy="employee")//, fetch=FetchType.EAGER)
     private List<PayStub> payStubList= new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<EmailGroup> emailGroups=new ArrayList<>();
 
     @Override
