@@ -1,5 +1,7 @@
 package com.javabrains;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,7 +19,8 @@ public class PayStub {
 
     private float salary;
 
-    @ManyToOne
+    //@ManyToOne(cascade = CascadeType.REMOVE)--> Don't use because when a paystub is deleted employee will also be deleted
+    @ManyToMany
     @JoinColumn(name = "paystub_for")
     private Employee employee;
 

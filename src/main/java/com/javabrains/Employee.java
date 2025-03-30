@@ -38,7 +38,9 @@ public class Employee {
     @OneToOne//(fetch = FetchType.LAZY)
     private AccessCard card;
 
-    @OneToMany(mappedBy="employee")//, fetch=FetchType.EAGER)
+    //Employee is deleted delete the paystub as well
+    //Cascade.Save if employee is deleted paystubs will be saved
+    @OneToMany(mappedBy="employee",cascade = CascadeType.REMOVE)//, fetch=FetchType.EAGER)
     private List<PayStub> payStubList= new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
