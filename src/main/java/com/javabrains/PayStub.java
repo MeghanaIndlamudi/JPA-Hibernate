@@ -20,7 +20,7 @@ public class PayStub {
     private float salary;
 
     //@ManyToOne(cascade = CascadeType.REMOVE)--> Don't use because when a paystub is deleted employee will also be deleted
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "paystub_for")
     private Employee employee;
 

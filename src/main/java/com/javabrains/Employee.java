@@ -50,18 +50,18 @@ public class Employee {
     )
     private List<EmailGroup> emailGroups=new ArrayList<>();
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", dob=" + dob +
-                ", ssn='" + ssn + '\'' +
-                ", type=" + type +
-                ", card=" + card +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Employee{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", age=" + age +
+//                ", dob=" + dob +
+//                ", ssn='" + ssn + '\'' +
+//                ", type=" + type +
+//                ", card=" + card +
+//                '}';
+//    }
 
     public AccessCard getCard() {
         return card;

@@ -28,13 +28,13 @@ public class JPAStarterRead {
             System.out.println(employee.getPayStubList());
             */
 
-          /*System.out.println("*********** Before Fetching Employee");
+            /*System.out.println("*********** Before Fetching Employee");
             Employee employee=entityManager.find(Employee.class,1);
             System.out.println("*********** Before Accessing paystub");
             System.out.println(employee.getPayStubList());
             */
 
-           EmailGroup emailGroup=entityManager.find(EmailGroup.class,7);
+            EmailGroup emailGroup=entityManager.find(EmailGroup.class,7);
             System.out.println("Got Email Group. Now Accessing  members");
             System.out.println(emailGroup.getMembers());
 
